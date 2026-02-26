@@ -1,0 +1,61 @@
+body {
+    background-color: #0b0e11;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.casino-container {
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    gap: 20px;
+}
+
+.video-wrapper {
+    position: relative;
+    flex: 2;
+    background: black;
+    border: 3px solid #f1c40f;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.last-number-overlay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #f1c40f;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#numberLabel {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+#statusLabel {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    font-size: 0.8rem;
+}

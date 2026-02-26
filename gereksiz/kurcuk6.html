@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sponsor Kartları</title>
+    <style>
+        /* Genel Ayarlar */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0f0f0f; /* Koyu tema arka planı */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Grid Yapısı */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 sütun */
+            gap: 10px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Mobilde tek sütuna düşür */
+        @media (max-width: 768px) {
+            .sponsor-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Kart Genel Yapısı */
+        .card-link {
+            text-decoration: none;
+            display: block;
+            border-radius: 12px;
+            padding: 2px; /* Gradient border için boşluk */
+            transition: transform 0.3s ease;
+        }
+
+        .card-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .card-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 100px;
+            border-radius: 10px;
+            padding: 10px;
+            backdrop-filter: blur(2px); /* Buzlu cam efekti */
+            border: 2px solid transparent;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            /* Neon parlama animasyonu */
+            animation: neonPulse 2s infinite alternate;
+        }
+
+        /* Resim Ayarları */
+        .card-logo {
+            height: 30px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 8px;
+            max-width: 100%;
+        }
+
+        /* Yazı Ayarları */
+        .text-main {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .text-sub {
+            font-size: 12px;
+            font-weight: 700;
+            opacity: 0.9;
+            display: block;
+        }
+
+        .code-box {
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        /* --- Renk Temaları --- */
+
+        /* 1. Kart: Turuncu / Cyan */
+        .theme-cyan {
+            background: linear-gradient(90deg, #fb7c28 0%, #241002 50%, #fb7c28 100%);
+        }
+        .theme-cyan .card-inner {
+            border-color: #00fff1;
+            box-shadow: inset 0 0 16px rgba(0, 255, 241, 0.35);
+            --glow-color: rgba(0, 255, 241, 0.6);
+        }
+
+        /* 2. Kart: Kırmızı / Beyaz */
+        .theme-white {
+            background: linear-gradient(90deg, #af0100 0%, #241002 50%, #af0100 100%);
+        }
+        .theme-white .card-inner {
+            border-color: #ffffff;
+            box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.35);
+            --glow-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* 3. Kart: Sarı */
+        .theme-yellow {
+            background: linear-gradient(90deg, #caac00 0%, #241002 50%, #caac00 100%);
+        }
+        .theme-yellow .card-inner {
+            border-color: #f1db4b;
+            box-shadow: inset 0 0 16px rgba(241, 219, 75, 0.35);
+            --glow-color: rgba(241, 219, 75, 0.6);
+        }
+
+        /* 4. Kart: Mavi */
+        .theme-blue {
+            background: linear-gradient(90deg, #0000ff 0%, #241002 50%, #0000ff 100%);
+        }
+        .theme-blue .card-inner {
+            border-color: #000000; /* Orijinalde siyah border var ama mavi glow var */
+            box-shadow: 0 0 10px rgb(75, 161, 241), inset 0 0 16px rgba(0, 0, 0, 0.35);
+            --glow-color: rgba(75, 161, 241, 0.6);
+        }
+
+        /* Animasyon Keyframes */
+        @keyframes neonPulse {
+            from {
+                box-shadow: 0 0 5px var(--glow-color), inset 0 0 5px var(--glow-color);
+            }
+            to {
+                box-shadow: 0 0 15px var(--glow-color), inset 0 0 10px var(--glow-color);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="sponsor-grid">
+
+    <a href="#" class="card-link theme-cyan">
+        <div class="card-inner">
+            <img src="https://www.dayko27.com/_next/image?url=https%3A%2F%2Fjzwwpylydakmizvjmxay.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fprensmedya%2Fd7f333a8-8437-4ce1-b6f7-ef6f93ca08a3%2F1756842422030-mov-yaz_l_-format.gif&w=384&q=75" alt="Logo" class="card-logo">
+            <span class="code-box">KOD: Zmarco500</span>
+            <span class="text-sub">1500₺ NAKİT BONUS</span>
+        </div>
+    </a>
+
+    <a href="#" class="card-link theme-white">
+        <div class="card-inner">
+            <img src="https://www.dayko27.com/_next/image?url=https%3A%2F%2Fjzwwpylydakmizvjmxay.supabase.co%2Fstorage%2Fv1%2Frender%2Fimage%2Fpublic%2Fprensmedya%2Fc7f821d5-0431-4c30-9ee2-242a9d5d1d82%2F1764439458772-vaycasinobeyaz-logo.png%3Fquality%3D75&w=384&q=75" alt="Logo" class="card-logo">
+            <span class="text-main">3.333₺ NAKİT BONUS</span>
+            <span class="text-sub">SINIRSIZ ÇEKİM!</span>
+        </div>
+    </a>
+
+    <a href="#" class="card-link theme-yellow">
+        <div class="card-inner">
+            <img src="https://www.dayko27.com/_next/image?url=https%3A%2F%2Fjzwwpylydakmizvjmxay.supabase.co%2Fstorage%2Fv1%2Frender%2Fimage%2Fpublic%2Fprensmedya%2Fc7f821d5-0431-4c30-9ee2-242a9d5d1d82%2F1765925648256-450x100_logo.png%3Fquality%3D75&w=384&q=75" alt="Logo" class="card-logo">
+            <span class="text-sub">✧ VIP ✧</span>
+            <span class="text-sub">10.000₺ NAKİT</span>
+        </div>
+    </a>
+
+    <a href="#" class="card-link theme-blue">
+        <div class="card-inner">
+            <img src="https://www.dayko27.com/_next/image?url=https%3A%2F%2Fjzwwpylydakmizvjmxay.supabase.co%2Fstorage%2Fv1%2Frender%2Fimage%2Fpublic%2Fprensmedya%2Fc7f821d5-0431-4c30-9ee2-242a9d5d1d82%2F1761752817193-27a64c4e65beef857661.png%3Fquality%3D75&w=384&q=75" alt="Logo" class="card-logo">
+            <span class="text-main">1000₺ NAKİT BONUS</span>
+        </div>
+    </a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canlı Rulet Mirror - OYUN DUNYAM</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="socket.io.min.js"></script>
+    <script src="livekit-client.umd.min.js"></script>
+</head>
+<body>
+
+    <div class="casino-container">
+        <div class="video-wrapper">
+            <!--
+            <video id="remoteVideo" autoplay playsinline muted></video>
+            -->
+            <div id="video-container" style="background: #000; min-height: 300px;">
+                Yayın Yükleniyor...
+            </div>
+            <div id="statusLabel">Bağlanıyor...</div>
+            
+            <div class="last-number-overlay">
+                <span id="numberLabel">--</span>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h3>Canlı Rulet Sonuçları</h3>
+            <div id="history">
+                </div>
+        </div>
+    </div>
+
+    <script src="client2.js"></script>
+</body>
+</html>

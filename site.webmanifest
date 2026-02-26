@@ -1,0 +1,22 @@
+{
+    "name": "Ercüden Siteler",
+    "short_name": "Ercuden Site",
+    "description": "En güncel ve oynadığım güvenilir siteler listesi. Paranızı katlayabileceğiniz en iyi platformları burada bulabilirsiniz.",
+    "icons": [
+        {
+            "src": "/pwa-icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/favicon.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#6f27dd",
+    "background_color": "#ffffff",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "orientation": "portrait"
+}

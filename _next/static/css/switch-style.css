@@ -1,0 +1,98 @@
+:root {
+  /* --- 1. ANA AYARLAR --- */
+  --font-sz: 20px;    /* Ana boyutlandırma ölçeği */
+  
+  --switch-w: 7em;    /* Switch Genişliği */
+  --switch-h: 3em;    /* Switch Yüksekliği */
+  --padding:  0.2em;  /* Kenar Boşluğu */
+
+  /* --- 2. OTOMATİK HESAPLAMALAR (Dokunma) --- */
+  /* Dairenin Çapı = Yükseklik - (2 x Padding) */
+  --knob-size: calc(var(--switch-h) - (var(--padding) * 2));
+  
+  /* Gidilecek Mesafe = Genişlik - Daire Çapı - (2 x Padding) */
+  /* Bu formül, padding'i de hesaba katarak tam sağa yaslar */
+  --travel: calc(var(--switch-w) - var(--knob-size) + (var(--padding) * 6));
+
+  --dur: 400ms;
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox + label {
+  /* FLEX YAPI */
+  display: inline-flex;
+  align-items: center;
+  
+  font-size: var(--font-sz);
+  width: var(--switch-w);
+  height: var(--switch-h);
+  padding: var(--padding);
+  
+  box-sizing: border-box;
+  background: linear-gradient(to right, #fd1a15 0, #fc8b34 45%, #7fd03e 55%, #007177 100%) 0 0;
+  background-size: 200% 100%;
+  border-radius: 99em;
+  cursor: pointer;
+  user-select: none;
+  
+  transition: all var(--dur) ease;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2) inset;
+}
+
+/* YUVARLAK DÜĞME (KNOB) */
+.checkbox + label:before {
+  content: "Off";
+  
+  /* Flex Ortalama */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Sabit Boyutlandırma */
+  width: var(--knob-size);
+  height: var(--knob-size);
+  flex-shrink: 0; /* ÖNEMLİ: İçerik daireyi asla genişletemez */
+  
+  background: #fff;
+  border-radius: 50%;
+  
+  /* Yazı Stili */
+  font-family: "Cabin", sans-serif;
+  font-size: 0.8em;
+  font-weight: 800;
+  color: #fd1a15;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  
+  /* Animasyon */
+  transition: transform var(--dur) cubic-bezier(0.7, -0.4, 0.4, 1.4), color var(--dur) ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Tıklama Efekti */
+.checkbox + label:active:before {
+  transform: scale(0.9);
+}
+
+/* --- ON DURUMU --- */
+
+.checkbox:checked + label {
+  background-position: 100% 0;
+}
+
+.checkbox:checked + label:before {
+  content: "On";
+  color: #007177;
+  
+  /* HESAPLANMIŞ MESAFEYE GİT */
+  transform: translateX(var(--travel));
+}
+
+/* Checked iken tıklama efekti */
+.checkbox:checked + label:active:before {
+  /* Olduğu yerde küçül */
+  transform: translateX(var(--travel)) scale(0.9);
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco - Link Bio</title>
+    <link rel="shortcut icon" href="https://dayko11.com/favicon.svg">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Montserrat', 'sans-serif'] },
+                    animation: { 'glow': 'glow 2s ease-in-out infinite alternate' },
+                    keyframes: {
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(255,255,255,0.1)' },
+                            '100%': { boxShadow: '0 0 15px rgba(255,255,255,0.4)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: black; color: white; margin: 0; padding: 0; }
+        
+        /* Arka Plan Efekti */
+        .bg-pulsing-wrapper {
+            background: radial-gradient(circle at 50% 0%, #2e1065 0%, #000000 70%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Altın Çerçeve Efekti */
+        .gold-border-wrapper {
+            background-image: repeating-linear-gradient(to right, #a2682a 0%, #be8c3c 8%, #d3b15f 27%, #faf0a0 35%, #ffffc2 40%, #faf0a0 50%, #d3b15f 58%, #be8c3c 67%, #a4692a 100%);
+            padding: 4px;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 960px;
+        }
+
+        /* Sponsor Kartları */
+        .sponsor-card {
+            background-color: #100000;
+            border-radius: 12px;
+            height: 85px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sponsor-card:hover {
+            border-color: #ff00aa;
+            box-shadow: 0 0 20px rgba(255, 0, 170, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .hero-card {
+            height: 110px;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-card:hover { transform: scale(1.03); }
+
+        img { max-width: 100%; height: auto; object-fit: contain; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pulsing-wrapper">
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-[960px] mb-8">
+            
+            <a href="https://t2m.io/zbhsmarc121" target="_blank" class="hero-card flex flex-col items-center justify-center p-4 border-2 border-cyan-400" 
+               style="background: linear-gradient(90deg, #fb7c28 0%, #241002 50%, #fb7c28 100%); box-shadow: 0 0 15px rgba(0, 255, 241, 0.4);">
+                <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1764439458772-vaycasinobeyaz-logo.png" class="h-6 mb-2" alt="VayCasino">
+                <span class="text-sm font-bold uppercase tracking-wide">3.333₺ NAKİT BONUS</span>
+                <span class="text-[10px] font-bold opacity-90">SINIRSIZ ÇEKİM!</span>
+            </a>
+
+            <a href="https://t2m.io/daykoterso" target="_blank" class="hero-card flex flex-col items-center justify-center p-4 border-2 border-yellow-400" 
+               style="background: linear-gradient(90deg, #caac00 0%, #241002 50%, #caac00 100%); box-shadow: 0 0 15px rgba(241, 219, 75, 0.4);">
+                <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765925648256-450x100_logo.png" class="h-6 mb-2" alt="VIP">
+                <span class="text-sm font-bold uppercase tracking-wide">✧ VIP ✧</span>
+                <span class="text-[10px] font-bold opacity-90">10.000₺ NAKİT</span>
+            </a>
+
+            <a href="https://t2m.io/MrcDodo" target="_blank" class="hero-card flex flex-col items-center justify-center p-4 border-2 border-blue-500" 
+               style="background: linear-gradient(90deg, #0000ff 0%, #241002 50%, #0000ff 100%); box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);">
+                <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1761752817193-27a64c4e65beef857661.png" class="h-7 mb-2" alt="Bonus">
+                <span class="text-sm font-bold uppercase tracking-wide">1000₺ NAKİT BONUS</span>
+            </a>
+        </div>
+
+        <div class="gold-border-wrapper">
+            <div class="bg-black w-full h-full rounded-[11px] p-3">
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                    
+                    <a href="https://t2m.io/MrcBahscm" target="_blank" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548402910-bahiscom.png" alt="Bahis.com">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548359037-Mariobet.png" alt="Mariobet">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548382263-betewin.png" alt="Betewin">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548392063-bankobet.png" alt="Bankobet">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548370793-betkom.png" alt="Betkom">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548347278-tarafbet__1_.png" alt="Tarafbet">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1766242336138-starrora.png" alt="Starrora">
+                    </a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1763293002667-levantt.png" alt="Levantt">
+                    </a>
+
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/fixbet.webp" alt="Fixbet"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/matadorbet.webp" alt="Matadorbet"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/sahabet.webp" alt="Sahabet"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/supertoto.webp" alt="Supertoto"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/primebahis.webp" alt="Primebahis"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/sekabet.webp" alt="Sekabet"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/betturkey.webp" alt="Betturkey"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/xslot.webp" alt="Xslot"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/otobet.webp" alt="Otobet"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/mistycasino.svg" alt="Misty"></a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765460203922-Casitap-450x100.png" alt="Casitap">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765460191651-CasinoSpinp-450x100.png" alt="CasinoSpin">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765460214424-Casitoros-450x100.png" alt="Casitoros">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765383910623-betnano-logo-.png" alt="Betnano">
+                    </a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/mersobahis.webp" alt="Mersobahis"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/amgbahis.webp" alt="Amgbahis"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/betkanyon.webp" alt="Betkanyon"></a>
+
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1766505325912-LOCALOGO.png" alt="Loca">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/d7f333a8-8437-4ce1-b6f7-ef6f93ca08a3/1757870641408-SansCasino-Logo-300x150.png" alt="SansCasino">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/d7f333a8-8437-4ce1-b6f7-ef6f93ca08a3/1757870736862-vidobet_logo.png" alt="Vidobet">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1763777604706-huqqa.png" alt="Huqqa">
+                    </a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/slotin.webp" alt="Slotin"></a>
+                    <a href="#" class="sponsor-card"><img src="https://www.dayko27.com/logos/asyabahis.webp" alt="Asyabahis"></a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1764965037358-carkbet-logo-beyaz__1_.png" alt="Carkbet">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1766501081130-bahisbom-logo-new.png" alt="Bahisbom">
+                    </a>
+                    <a href="#" class="sponsor-card">
+                        <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1767361976324-39f2a947-61bd-47e5-8e7b-81e877fb6ddf.png" alt="Extra">
+                    </a>
+
+                    <div class="col-span-2 md:col-span-3 lg:col-span-4 flex justify-center py-4 mt-4">
+                        <a href="https://t2m.io/zbhsmarc121" target="_blank" class="hover:opacity-80 transition-opacity">
+                            <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/object/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1763465769477-reklam_ve_i_birli_i__1_.gif" class="max-h-[70px]" alt="Reklam ve İş Birliği">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 text-white/30 text-[10px] font-bold tracking-widest uppercase">
+            Marco &bull; 2024
+        </div>
+
+    </div>
+
+</body>
+</html>

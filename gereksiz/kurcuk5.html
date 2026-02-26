@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco - Linkler</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --card-radius: 12px;
+            --font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+        }
+        .container {
+            width: 100%;
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 11px 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .grid-layout {
+            display: grid;
+            gap: 10px;
+        }
+        .card {
+            position: relative;
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* Default border/bg fallback */
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: #111;
+            min-height: 80px;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            filter: brightness(1.1);
+        }
+        .card-content {
+            padding: 15px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .logo-img {
+            height: 30px;
+            object-fit: contain;
+        }
+        .bonus-text {
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .sub-text {
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        /* --- Header Bölümü (Üstteki 4'lü) --- */
+        /* Masaüstünde 4 sütun */
+        .header-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Özel Header Kart Renkleri (Gradients) */
+
+
+        .content-wrapper {
+            /* Orijinal koddaki pulsing/repeating gradient yapısı */
+            background: repeating-linear-gradient(45deg, #2b1d0e, #2b1d0e 10px, #1a1100 10px, #1a1100 20px);
+            padding: 20px;
+            border-radius: 16px;
+            border: 1px solid #443311;
+        }
+        .main-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .main-card {
+            background-color: #000;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .code-badge {
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+        .footer {
+            margin-top: auto;
+            padding: 30px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #888;
+            gap: 8px;
+        }
+        .footer-logo {
+            width: 24px;
+            height: 24px;
+            fill: #888;
+        }
+
+        /* --- Mobil Uyumluluk --- */
+        @media (max-width: 768px) {
+            /*
+            .header-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .main-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .container {
+                padding: 10px;
+            }
+             */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="grid-layout header-grid">
+            <!--
+            <a href="#link1" target="_blank" class="card header-card-1">
+                <div class="card-content">
+                    <div class="sub-text">MİNİMUM 250₺</div>
+                    <div class="bonus-text">YATIRIM FIRSATI!</div>
+                </div>
+            </a>
+            <a href="#link2" target="_blank" class="card header-card-2">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1764439458772-vaycasinobeyaz-logo.png?quality=75&w=384" alt="VayCasino" class="logo-img">
+                    <div class="bonus-text">3.333₺ NAKİT</div>
+                    <div class="sub-text">SINIRSIZ ÇEKİM!</div>
+                </div>
+            </a>
+            <a href="#link3" target="_blank" class="card header-card-3">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1765925648256-450x100_logo.png?quality=75&w=384" alt="Logo" class="logo-img">
+                    <div class="sub-text">✧ VIP ✧</div>
+                    <div class="bonus-text">10.000₺ NAKİT</div>
+                </div>
+            </a>
+            <a href="#link4" target="_blank" class="card header-card-4">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1761752817193-27a64c4e65beef857661.png?quality=75&w=384" alt="Logo" class="logo-img">
+                    <div class="bonus-text">1000₺ NAKİT BONUS</div>
+                </div>
+            </a>
+            -->
+            <a href="https://t2m.io/zbhsmarc121" target="_blank" rel="noopener noreferrer" class="relative flex"
+               style="width: 100%; height: 100%; z-index: 10; background: linear-gradient(90deg, rgb(251, 124, 40) 0%, rgb(36, 16, 2) 50%, rgb(251, 124, 40) 100%); object-fit: cover; text-align: left; opacity: 1; position: relative; margin: 0px; padding: 0px; font-size: 16px; border-radius: 12px;">
+                <div class="relative flex items-center justify-center overflow-hidden cursor-pointer transition-all duration-300 ease-in-out animate-glow sponsor-card-neon text-white w-full"
+                     style="border: 2px solid rgb(0, 255, 241); border-radius: 12px; box-shadow: rgba(0, 255, 241, 0.35) 0px 0px 16px 1px inset, rgba(0, 255, 241, 0.45) 0px 0px 14px 3px; backdrop-filter: blur(1px); height: 100%; animation-delay: 0s; --card-color: #00FFF1; --card-color-rgb: 0, 255, 241; --animation-delay: 0s; --animation-duration: 2s; --animated-border-color: #ff00aa; --animated-border-color-secondary: #00FFF1; --animation-speed: 2s; --animated-border-width: 2px; --holographic-base-color: #E6E6E6; --holographic-animation-speed: 3s; --holographic-intensity: 0.7; --fire-color: #E6E6E6; --fire-intensity: 0.7; --sparkle-color: #009D9D; --sparkle-opacity: 0.8; --sparkle-icon: ⚝; --wave-color: #E6E6E6; --wave-color-secondary: #FFFFFF; --wave-color-tertiary: #A1A1A1; --carbon-color-primary: #25F3F3; --carbon-color-secondary: #0ABABA; --carbon-dot-frequency: 10px; will-change: transform; transform: translateZ(0px); contain: layout style paint; content-visibility: auto; backface-visibility: hidden;">
+                    <div class="relative"
+                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; margin: 5px; font-size: 16px;">
+                        <div class="relative"
+                             style="height: 24px; object-fit: contain; margin: 0px; padding: 0px; background-position: center center; background-repeat: no-repeat; opacity: 1; position: relative; width: 100%; font-size: 16px; display: flex; align-items: center; justify-content: center;">
+                            <img alt="Sponsor Logo" width="960" height="180" decoding="async" data-nimg="1"
+                                 class="max-w-full h-auto transition-all duration-300"
+                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                 src="img/zbahis.gif"
+                                 style="color: transparent; width: 100%; height: 24px; object-fit: contain; border-radius: 0px; opacity: 1;">
+                        </div>
+                        <span class="block"
+                              style="background-position: center center; object-fit: cover; background-repeat: no-repeat; text-align: center; opacity: 1; position: relative; width: 100%; margin: 0px; padding: 0px; font-size: 12px; color: white; font-weight: bold; line-height: 1;">KOD: Zmarco500</span>
+                        <div class="relative"
+                             style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0px; width: auto;">
+                            <span class="block"
+                                  style="font-size: 12px; font-weight: 700; color: white; text-align: center; margin: 0px; padding: 0px; line-height: 1rem;">&nbsp;1500₺&nbsp;NAKİT BONUS</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://t2m.io/475993" target="_blank" rel="noopener noreferrer" class="relative flex"
+               style="background: linear-gradient(90deg, rgb(175, 1, 0) 0%, rgb(36, 16, 2) 50%, rgb(175, 1, 0) 100%); object-fit: cover; text-align: left; opacity: 1; position: relative; width: 100%; margin: 0px; padding: 0px; font-size: 16px; height: 100%; z-index: 10; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 13px;">
+                <div class="relative flex items-center justify-center overflow-hidden cursor-pointer transition-all duration-300 ease-in-out animate-glow sponsor-card-neon text-white w-full"
+                     style="border: 2px solid rgb(255, 255, 255); border-radius: 13px; box-shadow: rgba(255, 255, 255, 0.35) 0px 0px 16px 1px inset, rgba(255, 255, 255, 0.45) 0px 0px 14px 3px; backdrop-filter: blur(1px); height: 100%; animation-delay: 0s; --card-color: #FFFFFF; --card-color-rgb: 255, 255, 255; --animation-delay: 0s; --animation-duration: 2s; --animated-border-color: #ff00aa; --animated-border-color-secondary: #FFFFFF; --animation-speed: 2s; --animated-border-width: 2px; --holographic-base-color: #ff00aa; --holographic-animation-speed: 3s; --holographic-intensity: 0.7; --fire-color: #ff4400; --fire-intensity: 0.7; --sparkle-color: #ffff00; --sparkle-opacity: 0.8; --sparkle-icon: ★; --wave-color: #0af; --wave-color-secondary: #77daff; --wave-color-tertiary: #000; --carbon-color-primary: hsla(0,0%,98%,1); --carbon-color-secondary: #eec32d; --carbon-dot-frequency: 10px; will-change: transform; transform: translateZ(0px); contain: layout style paint; content-visibility: auto; backface-visibility: hidden;">
+                    <div class="relative"
+                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; margin: 12px; font-size: 16px;">
+                        <div class="relative"
+                             style="height: 24px; object-fit: contain; margin: 0px; padding: 0px; background-position: center center; background-repeat: no-repeat; opacity: 1; position: relative; width: auto; font-size: 16px; display: flex; align-items: center; justify-content: center;">
+                            <img alt="Sponsor Logo" width="960" height="180" decoding="async" data-nimg="1"
+                                 class="max-w-full h-auto transition-all duration-300"
+                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                 src="img/vaycasino.webp"
+                                 style="color: transparent; width: auto; height: 24px; object-fit: contain; border-radius: 0px; opacity: 1;">
+                        </div>
+                        <div class="relative"
+                             style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0px; width: auto; margin: 6px;">
+                            <span class="block"
+                                  style="font-size: 14px; font-weight: 700; color: white; text-align: center; margin: 0px; padding: 0px; line-height: 1.25rem;">3.333₺ NAKİT BONUS</span><span
+                                class="block"
+                                style="font-size: 12px; font-weight: 700; color: white; text-align: center; margin: 0px; padding: 0px; line-height: 1.25rem;">SINIRSIZ ÇEKİM!</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://t2m.io/daykoterso" target="_blank" rel="noopener noreferrer" class="relative flex"
+               style="background: linear-gradient(90deg, rgb(202, 172, 0) 0%, rgb(36, 16, 2) 50%, rgb(202, 172, 0) 100%); object-fit: cover; text-align: left; opacity: 1; position: relative; width: 100%; margin: 0px; padding: 0px; font-size: 16px; height: 100%; z-index: 10; border-width: 0px; border-color: rgb(255, 255, 255); border-radius: 13px;">
+                <div class="relative flex items-center justify-center overflow-hidden cursor-pointer transition-all duration-300 ease-in-out animate-glow sponsor-card-neon text-white w-full"
+                     style="border: 2px solid rgb(241, 219, 75); border-radius: 13px; box-shadow: rgba(241, 219, 75, 0.35) 0px 0px 16px 1px inset, rgba(241, 219, 75, 0.45) 0px 0px 14px 3px; backdrop-filter: blur(1px); height: 100%; animation-delay: 0s; --card-color: #F1DB4B; --card-color-rgb: 241, 219, 75; --animation-delay: 0s; --animation-duration: 2s; --animated-border-color: #ff00aa; --animated-border-color-secondary: #F1DB4B; --animation-speed: 2s; --animated-border-width: 2px; --holographic-base-color: #ff00aa; --holographic-animation-speed: 3s; --holographic-intensity: 0.7; --fire-color: #ff4400; --fire-intensity: 0.7; --sparkle-color: #ffff00; --sparkle-opacity: 0.8; --sparkle-icon: ★; --wave-color: #0af; --wave-color-secondary: #77daff; --wave-color-tertiary: #000; --carbon-color-primary: hsla(0,0%,98%,1); --carbon-color-secondary: #eec32d; --carbon-dot-frequency: 10px; will-change: transform; transform: translateZ(0px); contain: layout style paint; content-visibility: auto; backface-visibility: hidden;">
+                    <div class="relative"
+                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; margin: 12px; font-size: 16px;">
+                        <div class="relative"
+                             style="height: 24px; object-fit: contain; margin: 0px; padding: 0px; background-position: center center; background-repeat: no-repeat; opacity: 1; position: relative; width: auto; font-size: 16px; display: flex; align-items: center; justify-content: center;">
+                            <img alt="Sponsor Logo" width="960" height="180" decoding="async" data-nimg="1"
+                                 class="max-w-full h-auto transition-all duration-300"
+                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                 src="img/tersobet.webp"
+                                 style="color: transparent; width: auto; height: 24px; object-fit: contain; border-radius: 0px; opacity: 1;">
+                        </div>
+                        <div class="relative"
+                             style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 0px; width: auto; margin: 6px;">
+                            <span class="block"
+                                  style="font-size: 12px; font-weight: 700; color: white; text-align: center; margin: 0px; padding: 0px; line-height: 1.25rem;">✧ VIP ✧</span><span
+                                class="block"
+                                style="font-size: 12px; font-weight: 700; color: white; text-align: center; margin: 0px; padding: 0px; line-height: 1.25rem;">10.000₺  NAKİT</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="https://t2m.io/MrcDodo" target="_blank" rel="noopener noreferrer" class="relative flex"
+               style="width: 100%; height: 100%; z-index: 10; background: linear-gradient(90deg, rgb(0, 0, 255) 0%, rgb(36, 16, 2) 50%, rgb(0, 0, 255) 100%); object-fit: cover; text-align: left; opacity: 1; position: relative; margin: 0px; padding: 0px; font-size: 16px; border-radius: 12px; box-shadow: rgb(75, 161, 241) 0px 0px 10px; border-color: rgb(75, 161, 241); border-width: 2px;">
+                <div class="relative flex items-center justify-center overflow-hidden cursor-pointer transition-all duration-300 ease-in-out animate-glow sponsor-card-neon text-white w-full"
+                     style="border: 2px solid rgb(0, 0, 0); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 16px 1px inset, rgba(0, 0, 0, 0.45) 0px 0px 14px 3px; backdrop-filter: blur(1px); height: 100%; animation-delay: 0s; --card-color: #000000; --card-color-rgb: 0, 0, 0; --animation-delay: 0s; --animation-duration: 1.6s; --animated-border-color: #ff00aa; --animated-border-color-secondary: #000000; --animation-speed: 2s; --animated-border-width: 2px; --holographic-base-color: #000000; --holographic-animation-speed: 3s; --holographic-intensity: 0.7; --fire-color: #ff4400; --fire-intensity: 0.7; --sparkle-color: #ffff00; --sparkle-opacity: 0.8; --sparkle-icon: ★; --wave-color: #FFA600; --wave-color-secondary: #DA9D2A; --wave-color-tertiary: #B37400; --carbon-color-primary: hsla(0,0%,98%,1); --carbon-color-secondary: #eec32d; --carbon-dot-frequency: 10px; will-change: transform; transform: translateZ(0px); contain: layout style paint; content-visibility: auto; backface-visibility: hidden;">
+                    <div class="relative"
+                         style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 100%; margin: 5px; font-size: 16px;">
+                        <div class="relative"
+                             style="height: 30px; object-fit: contain; margin: 0px; padding: 0px; background-position: center center; background-repeat: no-repeat; opacity: 1; position: relative; width: 100%; font-size: 16px; display: flex; align-items: center; justify-content: center;">
+                            <img alt="Sponsor Logo" width="960" height="180" decoding="async" data-nimg="1"
+                                 class="max-w-full h-auto transition-all duration-300"
+                                 sizes="(max-width: 768px) 100vw, 33vw"
+                                 src="img/dodobet.webp"
+                                 style="color: transparent; width: 100%; height: 30px; object-fit: contain; border-radius: 0px; opacity: 1;">
+                        </div>
+                        <div class="relative"
+                             style="position: relative; display: flex; flex-direction: column; align-items: center; width: auto; gap: 4px;">
+                            <span class="block"
+                                  style="background-position: center center; object-fit: cover; background-repeat: no-repeat; text-align: center; opacity: 1; position: relative; width: 100%; margin: 0px; padding: 0px; font-size: 12px; color: white; font-weight: bold; line-height: 1;">1000₺ NAKİT BONUS</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </header>
+        <!--
+
+    <main class="content-wrapper">
+        <div class="grid-layout main-grid">
+
+            <a href="https://t2m.io/mrcfixbt" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://dayko27.com/logos/fixbet.webp" alt="Fixbet" class="logo-img">
+                    <div class="code-badge">KOD: marco500</div>
+                    <div class="bonus-text">1500₺ NAKİT BONUS</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/MRCMATO" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://dayko27.com/logos/matadorbet.webp" alt="Matadorbet" class="logo-img">
+                    <div class="code-badge">KOD: dayko1500</div>
+                    <div class="bonus-text">1500₺ NAKİT BONUS</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/daykosaha" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://dayko27.com/logos/sahabet.webp" alt="Sahabet" class="logo-img">
+                    <div class="bonus-text">1000₺ DENEME BONUSU</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/mrctotox" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://dayko27.com/logos/supertoto.webp" alt="Supertoto" class="logo-img">
+                    <div class="bonus-text">2500₺ NAKİT</div>
+                    <div class="sub-text">YATIRIM ŞARTI YOK</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/MrcBahscm" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548402910-bahiscom.png?quality=75&w=384" alt="Bahiscom" class="logo-img">
+                    <div class="bonus-text">200₺ NAKİT</div>
+                    <div class="sub-text">YATIRIM ŞARTI YOK</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/mrcmario" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548359037-Mariobet.png?quality=75&w=384" alt="Mariobet" class="logo-img">
+                    <div class="bonus-text">250₺ NAKİT</div>
+                    <div class="sub-text">veya 250 FREESPIN</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/marcobetewin" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548382263-betewin.png?quality=75&w=384" alt="Betewin" class="logo-img">
+                    <div class="bonus-text">500₺ NAKİT</div>
+                    <div class="sub-text">veya 1000 FREESPIN</div>
+                </div>
+            </a>
+
+            <a href="https://t2m.io/marcobankoo" target="_blank" class="card main-card">
+                <div class="card-content">
+                    <img src="https://jzwwpylydakmizvjmxay.supabase.co/storage/v1/render/image/public/prensmedya/c7f821d5-0431-4c30-9ee2-242a9d5d1d82/1760548392063-bankobet.png?quality=75&w=384" alt="Bankobet" class="logo-img">
+                    <div class="code-badge">MarcoBankoda</div>
+                    <div class="bonus-text">1000₺ NAKİT</div>
+                </div>
+            </a>
+
+        </div>
+        </main>
+        -->
+
+
+        <footer class="footer">
+
+        </footer>
+    </div>
+</body>
+</html>
